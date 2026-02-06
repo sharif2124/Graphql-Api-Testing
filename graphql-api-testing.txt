@@ -1,0 +1,30 @@
+QUERY
+
+mutation($locationName:String!,$charterName:String!,$episodeName:String!){
+  createLocation(location : {name:$locationName,type:"Sothzone",dimension:"234"} )
+  {
+    id
+  }
+  createCharacter(character: {name:$charterName,type:"Macho",status:"dead",species:"fantasy",
+  gender:"male",image:"png",originId:15,locationId:15})
+  {
+    id
+  }
+  createEpisode(episode: {name:$episodeName,air_date:"1990 June",episode:"Netflix"})
+  {
+    id
+  }
+  
+  deleteLocations(locationIds:[100,14]){
+    locationsDeleted
+  }
+  
+}
+
+--------------
+GRAPHQL VARIABLES
+{
+  "locationName":"Newzealand",
+  "charterName":"Baskin Robin",
+  "episodeName":"Mainfest"
+}
